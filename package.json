@@ -4,6 +4,12 @@
   "homepage": "https://github.com/TouchFoundry/react-bootstrap-modality",
   "repository": "https://github.com/TouchFoundry/react-bootstrap-modality",
   "description": "React Bootstrap modals made easy 🚀",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "modal",
+    "dialog"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
