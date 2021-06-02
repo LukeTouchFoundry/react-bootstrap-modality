@@ -1,6 +1,8 @@
 {
   "version": "0.1.2",
   "license": "MIT",
+  "homepage": "https://github.com/TouchFoundry/react-bootstrap-modality",
+  "repository": "https://github.com/TouchFoundry/react-bootstrap-modality",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
