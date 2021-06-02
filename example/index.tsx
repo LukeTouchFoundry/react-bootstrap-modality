@@ -1,14 +1,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {ModalContainer} from "../src/modal-container";
 
 import './index.scss';
-import {Modal} from '../src';
+import {Modality, ModalityContainer} from "../src";
 
 const App = () => {
   const showModal = () => {
-    Modal.showModal("A lovely title", <strong>A lovely body</strong>, {
+    Modality.showModal("A lovely title", <strong>A lovely body</strong>, {
       onConfirm: () => {
         window.alert("Confirm clicked!");
       },
@@ -19,7 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <ModalContainer/>
+      <ModalityContainer/>
       <button className={"button"} onClick={showModal}>Show modal!</button>
     </div>
   );

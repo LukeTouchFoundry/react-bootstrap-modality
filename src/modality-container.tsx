@@ -1,14 +1,13 @@
 import React from 'react';
 import {EventsEnum} from './events.enum';
-import Modal from 'react-bootstrap/Modal';
+import {Modal, Button} from 'react-bootstrap';
 
 import Emitter from './emitter';
 import EventEmitter from 'eventemitter3';
-import Button from 'react-bootstrap/Button';
 
-import './modal.scss';
+import './modality.scss';
 
-export class ModalContainer extends React.Component<any, any> {
+export class ModalityContainer extends React.Component<any, any> {
   private showEventListener?: EventEmitter;
   private hideEventListener?: EventEmitter;
 
@@ -60,7 +59,7 @@ export class ModalContainer extends React.Component<any, any> {
 
     if (!this.hideEventListener) {
       this.hideEventListener = Emitter.on(EventsEnum.HIDE, () => {
-        ModalContainer.clearState(this);
+        ModalityContainer.clearState(this);
       });
     }
   }
@@ -72,11 +71,11 @@ export class ModalContainer extends React.Component<any, any> {
     }
   }
 
-  private static handleClose(context: ModalContainer): void {
-    ModalContainer.clearState(context);
+  private static handleClose(context: ModalityContainer): void {
+    ModalityContainer.clearState(context);
   }
 
-  private static clearState(context: ModalContainer): void {
+  private static clearState(context: ModalityContainer): void {
     context.setState({
       show: false,
       title: '',
@@ -91,19 +90,19 @@ export class ModalContainer extends React.Component<any, any> {
     });
   }
 
-  private static handleConfirm(context: ModalContainer): void {
+  private static handleConfirm(context: ModalityContainer): void {
     if (context.state.confirmCallback) {
       context.state.confirmCallback();
     }
     if (context.state.closeOnConfirm) {
-      ModalContainer.clearState(context);
+      ModalityContainer.clearState(context);
     }
   }
 
   private displayClose() {
     if (this.state.displayCloseButton) {
       return <Button variant='secondary'
-                     onClick={() => ModalContainer.handleClose(this)}>{this.state.closeButton}</Button>;
+                     onClick={() => ModalityContainer.handleClose(this)}>{this.state.closeButton}</Button>;
     } else {
       return null;
     }
@@ -112,7 +111,7 @@ export class ModalContainer extends React.Component<any, any> {
   private displayConfirm() {
     if (this.state.displayConfirmButton) {
       return <Button variant='primary'
-                     onClick={() => ModalContainer.handleConfirm(this)}>{this.state.confirmButton}</Button>;
+                     onClick={() => ModalityContainer.handleConfirm(this)}>{this.state.confirmButton}</Button>;
     } else {
       return null;
     }
@@ -122,7 +121,7 @@ export class ModalContainer extends React.Component<any, any> {
     return <Modal className='global-modal'
                   show={this.state.show}
                   backdrop={'static'}>
-      <Modal.Header closeButton={this.state.displayCloseCross} onHide={() => ModalContainer.handleClose(this)}>
+      <Modal.Header closeButton={this.state.displayCloseCross} onHide={() => ModalityContainer.handleClose(this)}>
         <Modal.Title>{this.state.title}</Modal.Title>
       </Modal.Header>
 
