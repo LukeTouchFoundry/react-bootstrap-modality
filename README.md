@@ -49,6 +49,8 @@ function App() {
 
 There are two functions.
 
+
+##### Show the modal
 ```ts
 Modal.showModal(title, body, options);
 ```
@@ -67,6 +69,11 @@ Modal.showModal(title, body, options);
     displayCloseButton: true, // boolean
     displayCloseCross: true // boolean
 }
+```
+
+##### Dismiss the modal
+```ts
+Modal.dismissModal();
 ```
 
 ## About the author
