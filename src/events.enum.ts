@@ -1,4 +1,4 @@
 export enum EventsEnum {
-    DISPLAY = "DISPLAY",
-    HIDE = "HIDE"
+  DISPLAY = 'DISPLAY',
+  HIDE = 'HIDE',
 }

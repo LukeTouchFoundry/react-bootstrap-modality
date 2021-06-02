@@ -1,13 +1,12 @@
-import React from "react";
-import {EventsEnum} from "./events.enum";
-import Modal from "react-bootstrap/Modal";
+import React from 'react';
+import {EventsEnum} from './events.enum';
+import Modal from 'react-bootstrap/Modal';
 
-import Emitter from "./emitter";
-import EventEmitter from "eventemitter3";
-import Button from "react-bootstrap/Button";
+import Emitter from './emitter';
+import EventEmitter from 'eventemitter3';
+import Button from 'react-bootstrap/Button';
 
-//todo import bootstrap styling
-// import "bootstrap/scss/bootstrap";
+import './modal.scss';
 
 export class ModalContainer extends React.Component<any, any> {
   private showEventListener?: EventEmitter;
@@ -103,7 +102,7 @@ export class ModalContainer extends React.Component<any, any> {
 
   private displayClose() {
     if (this.state.displayCloseButton) {
-      return <Button variant="secondary"
+      return <Button variant='secondary'
                      onClick={() => ModalContainer.handleClose(this)}>{this.state.closeButton}</Button>;
     } else {
       return null;
@@ -112,7 +111,7 @@ export class ModalContainer extends React.Component<any, any> {
 
   private displayConfirm() {
     if (this.state.displayConfirmButton) {
-      return <Button variant="primary"
+      return <Button variant='primary'
                      onClick={() => ModalContainer.handleConfirm(this)}>{this.state.confirmButton}</Button>;
     } else {
       return null;
@@ -122,7 +121,7 @@ export class ModalContainer extends React.Component<any, any> {
   render(): JSX.Element {
     return <Modal className='global-modal'
                   show={this.state.show}
-                  backdrop={"static"}>
+                  backdrop={'static'}>
       <Modal.Header closeButton={this.state.displayCloseCross} onHide={() => ModalContainer.handleClose(this)}>
         <Modal.Title>{this.state.title}</Modal.Title>
       </Modal.Header>

@@ -2,7 +2,9 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {ModalContainer} from "../src/modal-container";
-import {Modal} from "../src/modal";
+
+import './index.scss';
+import {Modal} from '../src';
 
 const App = () => {
   const showModal = () => {
@@ -18,7 +20,7 @@ const App = () => {
   return (
     <div>
       <ModalContainer/>
-      <button onClick={showModal}>Show modal!</button>
+      <button className={"button"} onClick={showModal}>Show modal!</button>
     </div>
   );
 };

@@ -1,11 +1,10 @@
-import Emitter from "./emitter";
-import merge from 'lodash/merge';
-import {EventsEnum} from "./events.enum";
+import Emitter from './emitter';
+import {EventsEnum} from './events.enum';
 
 export class Modal {
   private static defaultOptions = {
-    confirmButton: "Confirm",
-    closeButton: "Close",
+    confirmButton: 'Confirm',
+    closeButton: 'Close',
     onConfirm: undefined,
     closeOnConfirm: true,
     displayConfirmButton: true,
@@ -39,11 +38,13 @@ export class Modal {
                             displayCloseCross?: boolean
                           } = this.defaultOptions): void {
 
+    console.log(Object.assign(this.defaultOptions, options));
+
     Emitter.emit(EventsEnum.DISPLAY,
       {
         title: title,
         body: body,
-        options: merge(this.defaultOptions, options)
+        options: Object.assign(this.defaultOptions, options)
       });
   }
 
