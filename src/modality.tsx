@@ -41,8 +41,6 @@ export class Modality {
                             displayCloseCross?: boolean
                           } = this.defaultOptions): void {
 
-    console.log(Object.assign(this.defaultOptions, options));
-
     Emitter.emit(EventsEnum.DISPLAY,
       {
         title: title,
