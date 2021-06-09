@@ -1,6 +1,6 @@
 import React from 'react';
 import {EventsEnum} from './events.enum';
-import {Modal, Button} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 
 import Emitter from './emitter';
 import EventEmitter from 'eventemitter3';
@@ -21,6 +21,7 @@ export class ModalityContainer extends React.Component<any, any> {
       confirmButton: '',
       closeButton: '',
       confirmCallback: null,
+      cancelCallback: null,
       closeOnConfirm: true,
       displayConfirmButton: true,
       displayCloseButton: true,
@@ -36,6 +37,7 @@ export class ModalityContainer extends React.Component<any, any> {
           confirmButton: string,
           closeButton: string,
           onConfirm: () => void,
+          onCancel: () => void,
           closeOnConfirm: boolean,
           displayConfirmButton: boolean,
           displayCloseButton: boolean,
@@ -49,6 +51,7 @@ export class ModalityContainer extends React.Component<any, any> {
           confirmButton: payload.options.confirmButton,
           closeButton: payload.options.closeButton,
           confirmCallback: payload.options.onConfirm,
+          cancelCallback: payload.options.onCancel,
           closeOnConfirm: payload.options.closeOnConfirm,
           displayConfirmButton: payload.options.displayConfirmButton,
           displayCloseButton: payload.options.displayCloseButton,
@@ -72,6 +75,9 @@ export class ModalityContainer extends React.Component<any, any> {
   }
 
   private static handleClose(context: ModalityContainer): void {
+    if (context.state.cancelCallback) {
+      context.state.cancelCallback();
+    }
     ModalityContainer.clearState(context);
   }
 
@@ -83,6 +89,7 @@ export class ModalityContainer extends React.Component<any, any> {
       confirmButton: '',
       closeButton: '',
       confirmCallback: null,
+      cancelCallback: null,
       closeOnConfirm: true,
       displayConfirmButton: true,
       displayCloseButton: true,
